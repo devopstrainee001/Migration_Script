@@ -65,7 +65,7 @@ Coverts all SVN branches to the GIT branches:
         echo git branch ${BRANCH%/} remotes/origin/${BRANCH%/}
         git branch ${BRANCH%/} remotes/origin/${BRANCH%/}
     done
-
+>NOTE: If your svn branches are not converted into git branches, make sure your path(/remote/origin/branches) is correct. 
 
 Coverts all SVN tags to GIT tags:
 
@@ -82,7 +82,7 @@ Coverts all SVN tags to GIT tags:
     do
       git branch -rd $ref
     done
-
+>NOTE: Make sure your path (refs/remotes/origin/tags) is correct.
 
 Push all your code and tags to your Azure repository
 
