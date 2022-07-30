@@ -7,7 +7,7 @@ EMAIL="abc@gmail.com"
 ###########################
 ####### SVN 
 # SVN repository to be migrated
-BASE_SVN="<Your-SVN-Repo_URL>"
+BASE_SVN="SVN-Repo-URL"
 
 # Organization inside BASE_SVN
 BRANCHES="branches"
@@ -15,9 +15,9 @@ TAGS="tags"
 TRUNK="trunk"
 
 ###########################
-####### GIT 
-# Git repository to migrate
-GIT_URL="Your-GitHub-Repo_URL"
+####### Azure 
+# Azure repository to migrate
+AZURE_URL="Azure-Repo-URL"
 
 ###########################
 #### Don't need to change from here
@@ -58,8 +58,8 @@ echo '[RUN] git svn fetch -'$FIRST_REVISION':HEAD'
 git svn fetch -$FIRST_REVISION:HEAD
 
 echo
-echo '[RUN] git remote add origin '$GIT_URL
-git remote add origin $GIT_URL
+echo '[RUN] git remote add origin '$AZURE_URL
+git remote add origin $AZURE_URL
 
 echo
 echo '[RUN] svn ls '$SVN_BRANCHES
