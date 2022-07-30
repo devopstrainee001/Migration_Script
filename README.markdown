@@ -12,52 +12,46 @@ Provide the name for your project and Email ID :
     PROJECT_NAME="myproject"
     EMAIL="abc@gmail.com" 
 
-git-svn will go through the commit history to build a new git repo. It will
-import all branches and tags as remote svn branches, whereas what you really
-want is git-native local branches and git tag objects. So after importing this
-project I'll get:
 
-    $ git branch
-    * master
-    $ git branch -a
-    * master
-      1.x
-      2.x
-      tags/1.0.0
-      tags/1.0.1
-      tags/1.0.2
-      tags/1.1.0
-      tags/2.0.0
-      trunk
-    $ git tag -l
-    [ empty ]
+Add SVN repository URL which needs to be migrated:
 
-After svn2git is done with your project, you'll get this instead:
 
-    $ git branch
-    * master
-      1.x
-      2.x
-    $ git tag -l
-      1.0.0
-      1.0.1
-      1.0.2
-      1.1.0
-      2.0.0
+    BASE_SVN="SVN-Repo-URL"
 
-Finally, it makes sure the HEAD of master is the same as the current trunk of
-the svn repo.
 
-Installation
-------------
+Provide the trunk, branches and tags directory name which is inside your SVN repository:
 
-Make sure you have git, git-svn, and ruby installed.  svn2git is a ruby wrapper around git's native SVN support through git-svn.  It is possible to have git installed without git-svn installed, so please do verify that you can run `$ git svn` successfully.  For a Debian-based system, the installation of the prerequisites would look like:
 
-    $ sudo apt-get install git-core git-svn ruby
+    BRANCHES="branches"
+    TAGS="tags"
+    TRUNK="trunk"
 
-Once you have the necessary software on your system, you can install svn2git through rubygems, which will add the `svn2git` command to your PATH.    
 
-    $ sudo gem install svn2git
+Add Azure repository URL where we will push our migrated code. 
+
+   
+    AZURE_URL="Azure-Repo-URL"
+
+
+This command will create the authors file from the SVN commits. We need this file for git migration. It’s a big command, make sure you put all these in a single command:
+
+  
+    svn log -q $BASE_SVN | awk -F '|' '/^r/ {sub("^ ", "", $2); sub(" $", "", $2); print $2" = "$2" <"$2"@"$EMAIL">"}' | sort -u >> $AUTHORS
+
+
+
+Clone the the source SVN repo to a local git repo with all branches, tags, trunk and authors file:
+
+
+    git svn clone --authors-file=$AUTHORS --trunk=$TRUNK --branches=$BRANCHES --tags=$TAGS $BASE_SVN $TMP
+
+
+Getting the firts revision:    
+
+
+    FIRST_REVISION=$( svn log -r 1:HEAD --limit 1 $BASE_SVN | awk -F '|' '/^r/ {sub("^ ", "", $1); sub(" $", "", $1); print $1}' )
+
+
 
 
 Usage
