@@ -90,6 +90,12 @@ Push all your code and tags to your Azure repository
      git push origin --tags
 > NOTE: We need to make sure that our workstation is alreday configured with the Azure repository.
 
+### Execute below command to run your shell script:
+
+    
+     $ ./migration.sh
+
+
 #
 
 ***NOTE*** : This Script will not work if SVN username and password Authentication is enables or our SVN is not configured with the SVN server.
