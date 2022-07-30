@@ -7,7 +7,7 @@ EMAIL="abc@gmail.com"
 ###########################
 ####### SVN 
 # SVN repository to be migrated
-BASE_SVN="SVN-Repo-URL"
+BASE_SVN="https://LAPTOP-TM72NFJS/svn/myrepo/"
 
 # Organization inside BASE_SVN
 BRANCHES="branches"
