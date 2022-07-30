@@ -1,7 +1,7 @@
 ## SVN to GIT Migration Shell Script 
-=======
+=======================================
 
-This Script helps us to automate the process of migration of SVN repository to GIT repository with history and branches. Its will automatically converts the svnbranches and tags to the GIT Branches and tags and push them to the Azure Repository
+This Script helps us to automate the process of migration of SVN repository to GIT repository with history and branches. Its will automatically converts the SVN branches and tags to the GIT Branches and tags and push them to the Azure Repository
 
 Explanation of Script
 --------
@@ -90,4 +90,4 @@ Push all your code and tags to your Azure repository
      git push origin --tags
 > NOTE: We need to make sure that our workstation is alreday configured with the Azure repository.
 
-
+***NOTE*** > This Script will not work if SVN username and password Authentication is enables or our SVN is not configured with the SVN server.
