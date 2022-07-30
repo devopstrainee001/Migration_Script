@@ -92,6 +92,6 @@ Push all your code and tags to your Azure repository
 
 #
 
-***NOTE : ***  This Script will not work if SVN username and password Authentication is enables or our SVN is not configured with the SVN server.
+***NOTE*** : This Script will not work if SVN username and password Authentication is enables or our SVN is not configured with the SVN server.
 
 #
