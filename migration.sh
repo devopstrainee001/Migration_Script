@@ -1,12 +1,12 @@
 #!/bin/bash
 
-####### Project name 
+####### Project name #######
 PROJECT_NAME="myproject"
 EMAIL="abc@gmail.com"
 
 ###########################
 ####### SVN 
-# SVN repository to be migrated
+# SVN repository to be migrated 
 BASE_SVN="SVN-Repo_URL"
 
 # Organization inside BASE_SVN
